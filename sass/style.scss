@@ -19,6 +19,9 @@ body {
   background: $color-light;
   font-family: $font-text;
   color: $color-dark;
+  background-image: url(https://images.pexels.com/photos/127160/pexels-photo-127160.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260);
+  background-position: center center;
+  background-size: cover;
   font-weight: 300;
   font-size: 16px;
   line-height: 1.7;
@@ -68,10 +71,11 @@ body {
 
 .logo {
   font-family: $font-logo;
-  font-weight: 400;
+  //font-weight: 400;
   font-size: 104px;
   line-height: 1;
   text-align: center;
+  color: #fff;
 }
 
 /* Lists */

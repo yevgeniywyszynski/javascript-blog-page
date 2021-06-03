@@ -133,35 +133,43 @@ function addClickListenersToTags(){
   /* END LOOP: for each link */
   }
 }
-
+//tworzymy funkcje
 function generateAuthors(){
 //szukamy wszystkie artykule
-const articles = document.querySelectorAll(optArticleSelector);
+const articles = document.querySelectorAll(optArticleSelector)
+//tworzymy petle dla article
 for (let article of articles){
 //szukamy miejse gdzie musimy zapisac autora
-const authorsWrapper = article.querySelector(optArticleAuthorSelector);
+const authorsWrapper = article.querySelector(optArticleAuthorSelector)
 //pobieramy wartosc autora z atrybutu
 const author = article.getAttribute('data-author')
 //twozrymy kod html
-const html = '<a href="#author-' + author + '">' + author + '</a>'
+const html = '<a href="#author-' + author +'">' + author + '</a>'
 //dodanie kodu do listy zapisanych autorow
 authorsWrapper.innerHTML = html;
-
 }
 }
 
+
+//tworzymy funkcje authorClickHandler
 function authorClickHandler(){
+  //blokujemy przegladarke href
   event.preventDefault();
+  //tworzymy stala const clickedElement i ustwiamy wartosc this
   const clickedElement = this;
-  const href = clickedElement.getAttribute('href')
+  //tworzymy stala href i pobieramy atrybut href z clickedElement
+  const href = clickedElement.getAttribute('href');
   //usun prefiks hash autor
   const author = href.replace('#author-', '')
+  //wyszykuj wszystkie aktywne artykule
   const articles = document.querySelectorAll('active')
+  //stworz petle dla article i usuwawy active
   for (let article of articles){
     article.classList.remove('active')
   }
-  const authorsLinks = document.querySelectorAll('a[href="' + href + '"]')
-  console.log(authorsLinks);
+  //tworzymy autor links i szukamy href wszystkich linkow
+  const authorsLinks = document.querySelectorAll('a[href="' + href +'"]')
+  //stworz petle dla authorLink dodaj clase active
   for (let authorLink of authorsLinks){
     authorLink.classList.add('active')
   }
@@ -169,13 +177,15 @@ function authorClickHandler(){
   generateTitleLinks('[data-author="' + author +'"]')
 }
 
+//tworzymy funkcje addClickListenersToAuthors
 function addClickListenersToAuthors(){
+  //tworzymy stala links i wyszykujemy wszystkich autorow po atrybucie href w linkach
   const links = document.querySelectorAll('a[href^="#author-"]')
+  //stworz petle dla linkow i dodaj addEventListener dla authorClickHandler
   for (let link of links){
-    link.addEventListener('click',authorClickHandler)
+    link.addEventListener('click', authorClickHandler)
   }
 }
-
 generateTags();
 generateTitleLinks()
 addClickListenersToTags();

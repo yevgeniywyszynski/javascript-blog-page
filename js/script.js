@@ -133,7 +133,7 @@
       /* generate HTML of the link */
         const tagObj = {
           tag: tag,
-        }
+        };
         const tagHTML = templates.tagLink(tagObj);
         /* add generated code to html variable */
         html = html + tagHTML;
@@ -156,7 +156,7 @@
     /* [NEW] create variable for all links HTML code */
     const tagsParams = calculateTagsParams(allTags);
     //console.log('tagsParams:', tagsParams)
-    const allTagsData = {tags: []}
+    const allTagsData = {tags: []};
     /* [NEW] START LOOP: for each tag in allTags: */
     for(let tag in allTags){
 
@@ -258,7 +258,7 @@
       //tworzymy link html i dodajemy wartosc autora
       const authorObj = {
         author: author,
-      }
+      };
       const html = templates.authorLink(authorObj);
       //wstawiamy link html w miejsce wrappera
       authorsWrapper.innerHTML = html;
